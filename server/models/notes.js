@@ -6,7 +6,7 @@ let NotesSchema = mongoose.Schema({
     ref:"Category",
     required: true,
   },
-  text: {
+  content: {
     type: String,
     required: true,
   },
