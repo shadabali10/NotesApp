@@ -5,14 +5,17 @@ let CategorySchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  color:{
+  color: {
     type: String,
-    default: "black"
+    default: "black",
   },
   keyword: {
     type: String,
     required: true,
   },
+},{
+  timestamps: true,
+  versionKey: false
 });
 
 module.exports = mongoose.model("Category", CategorySchema);

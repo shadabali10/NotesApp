@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 
 
-// app.use("/api",require("./routes/index.js"));
+app.use("/api",require("./routes/index.js"));
 
 app.get("/",(req,res)=>{
     res.status(200).json({

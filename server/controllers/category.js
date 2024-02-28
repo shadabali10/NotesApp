@@ -2,11 +2,11 @@ const Category = require("../models/category");
 
 const createCategory = async (req, res) => {
     try {
-        const { category, color, keyword } = req.body;
+        const { category, keyword } = req.body;
         if(!category || !keyword) {
             return res.status(400).send({ message: "Category and keyword are required" });
         }
-        const existCategory = await Category.findOne({ category });
+        const existCategory = await Category.findById({ category });
         if(existCategory) {
             return res.status(400).send({ message: "Category already exist" });
         }

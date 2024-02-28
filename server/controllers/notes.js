@@ -1,4 +1,5 @@
 const Notes = require("../models/notes");
+const Category = require("../models/category");
 
 const createNotes = async (req, res) => {
   try {
@@ -9,7 +10,7 @@ const createNotes = async (req, res) => {
         .send({ message: "Content and Category are required" });
     }
 
-    const findCategory = await Category.findOneById(category);
+    const findCategory = await Category.findById(category);
     if (!findCategory) {
       return res.status(400).send({ message: "Category not found" });
     }
@@ -27,7 +28,7 @@ const findNotesByCategory = async (req, res) => {
     if (!category) {
       return res.status(400).send({ message: "Category is required" });
     }
-    const findCategory = await Category.findOneById(category);
+    const findCategory = await Category.findById(category);
     if (!findCategory) {
       return res.status(400).send({ message: "Category not found" });
     }
